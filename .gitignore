@@ -52,3 +52,46 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Additional test artifacts
+*.trx
+
+# Code coverage
+*.coverage
+*.coveragexml
+coverage/
+
+# ASP.NET/Blazor
+appsettings.*.local.json
+wwwroot/lib/
+
+# Node tooling (if used)
+node_modules/
+dist/
+
+# JetBrains Rider / ReSharper
+.idea/
+*.sln.iml
+_ReSharper*/
+*.DotSettings.user
+
+# NCrunch
+_NCrunch_*/
+.*crunch*.local.xml
+
+# Publish profiles (user specific)
+Properties/PublishProfiles/*.pubxml.user

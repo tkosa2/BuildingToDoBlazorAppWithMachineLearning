@@ -1,0 +1,81 @@
+﻿@page "/todo"
+@rendermode InteractiveServer
+@using BuildingToDoBlazorWithML.Models
+
+<h3>Todo</h3>
+
+<div class="mb-3">
+    <label for="todoInput" class="form-label">Enter a new todo item:</label>
+    <input type="text" class="form-control" @bind="newTitle" id="todoInput" placeholder="e.g., Buy groceries" />
+</div>
+<button type="button" class="btn btn-primary me-2" @onclick="Add">Add</button>
+
+@if(todoItems.Count >0)
+{
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>Title </th>
+                <th>Predicted Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in todoItems)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.PredictedCategory</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    private string newTitle = string.Empty;
+    private List<TodoItem> todoItems = new List<TodoItem>();
+    private string? error;
+
+    private void Add()
+    {
+        var title = newTitle?.Trim();
+
+        if (!string.IsNullOrWhiteSpace(title))
+        {
+            //Load sample data
+            var sampleData = new CategoryDetection.ModelInput()
+            {
+                Title = title,
+            };
+
+            //Load model and predict output
+            var result = CategoryDetection.Predict(sampleData);
+
+            string category = string.Empty;
+
+            if(result.PredictedLabel)
+            {
+                category = "Work";
+            }
+            else
+            {
+                category = "Home";
+            }
+
+            var newItem = new TodoItem
+            {
+                Title = title,
+                PredictedCategory = category
+
+            };
+            todoItems.Add(newItem);
+            newTitle = string.Empty;
+            todoItems = todoItems.OrderBy(t => t.Title).ToList();
+            StateHasChanged();
+        }
+
+        return;
+    }
+
+}
