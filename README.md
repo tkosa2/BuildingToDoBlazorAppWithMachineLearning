@@ -16,8 +16,6 @@ Next
 
 Ceate
 
-![Snapshot](assets/snapshot8.png)
-
 Left click on the mouse on the “Pages” folder to open menu.
 
 ![Snapshot](assets/snapshot20.png)
@@ -46,8 +44,6 @@ New
 
 Update
 
-![Snapshot](assets/snapshot2.png)
-
 Left click on the mouse on project “BuildingToDoBlazorWithML” to add new item “CategoryDetection.csv”
 
 ![Snapshot](assets/snapshot5.png)
@@ -57,8 +53,6 @@ Left click on the mouse on project “BuildingToDoBlazorWithML” to add new item “C
 ![Snapshot](assets/snapshot7.png)
 
 Copy below and paste into CategoryDetection.csv
-
-![Snapshot](assets/snapshot6.png)
 
 Left on the mouse on the project “BuildingToDoBlazorWithML” to add Machine Learning Model “CategoryDetection.mbconfig”
 
@@ -104,19 +98,11 @@ Evaluate result(predict) from title(feature)
 
 Move on to frontend! Update Todo.razor. Copy code below and paste into Todo.razor.
 
-![Snapshot](assets/snapshot27.png)
-
 Update NavMenu.razor to include a link to the ToDo.razor.  Copy new link to the NavMenu.razor
-
-![Snapshot](assets/snapshot31.png)
 
 F5 to run the application. Go to “ToDo” page to add a To Do item “buy groceries”
 
-![Snapshot](assets/snapshot29.png)
-
 The predicted category will show “Home” because to do items is related to home stuff.
-
-![Snapshot](assets/snapshot1.png)
 
 Add one more ToDo item related to work “Check emails” and predicted category is “Work”
 
